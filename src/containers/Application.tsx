@@ -1,15 +1,15 @@
 import { h, Fragment } from "preact";
-import { useMatch } from "@tanstack/react-location";
 import { paths } from "@utils/constants";
-
-function usePath(arr: string[]) {
-  const { pathname } = useMatch();
-  const type = pathname.split("/").filter(Boolean)[1];
-  const is404 = !type || !arr.includes(type);
-  return { is404, type, pathname };
-}
-
+import { usePath } from "@hooks";
+import { useEffect, useState } from "preact/hooks";
+import styles from '@styles/pages/dashboard/index.module.scss'
 export default function Application() {
-  const { is404 } = usePath(paths);
-  return <>test</>;
+  const { type } = usePath(paths);
+  const [loading, setLoading] = useState(true);
+  const [server, setServer] = useState();
+  useEffect(() => {
+
+  }, []);
+
+  return <div class="application"></div>;
 }
