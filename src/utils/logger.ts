@@ -37,7 +37,9 @@ export class Logger {
     console.log(
       chalk.magenta`${
         options?.title
-          ? `[${options.with_title ? "DEBUG:" : ""}${options.title.toUpperCase()}]`
+          ? `[${
+              options.with_title ? "DEBUG:" : ""
+            }${options.title.toUpperCase()}]`
           : `[DEBUG]`
       }` + `: ${message}`
     );
@@ -46,18 +48,22 @@ export class Logger {
     console.log(
       chalk.red`${
         options?.title
-          ? `[${options.with_title ? "ERROR:" : ""}${options.title.toUpperCase()}]`
+          ? `[${
+              options.with_title ? "ERROR:" : ""
+            }${options.title.toUpperCase()}]`
           : `[ERROR]`
-      }`+`: ${message}`
+      }` + `: ${message}`
     );
   }
   warn(message: string, options?: IWarnOptions) {
     console.log(
       chalk.yellow`${
         options?.title
-          ? `[${options.with_title ? "WARN:" : ""}${options.title.toUpperCase()}]`
+          ? `[${
+              options.with_title ? "WARN:" : ""
+            }${options.title.toUpperCase()}]`
           : `[WARN]`
-      }`+`: ${message}`
+      }` + `: ${message}`
     );
   }
 }

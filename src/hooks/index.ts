@@ -1,1 +1,1 @@
-export * from './usePath'
+export * from "./usePath";
