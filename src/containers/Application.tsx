@@ -27,7 +27,7 @@ export default function Application() {
               class={`${styles.item} ${
                 data![0] == path_map ? styles.active : ""
               }`}
-              onClick={() => navigate(path_map)}
+              onClick={() => navigate(path_map as string)}
             >
               <div class={styles.icon}>
                 <Icon />
