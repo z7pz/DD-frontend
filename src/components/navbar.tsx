@@ -1,5 +1,5 @@
 import { h } from "preact";
-import styles from "@styles/pages/dashboard/index.module.scss";
+import styles from "@styles/pages/index.module.scss";
 export function Navbar() {
-  return <div class={}></div>;
+  return <div class={styles}></div>;
 }

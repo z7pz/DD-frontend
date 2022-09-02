@@ -3,18 +3,15 @@ import "@styles/index.scss";
 import { Outlet, Router, ReactLocation, Route } from "@tanstack/react-location";
 import Application from "@containers/Application";
 import { usePath } from "@hooks";
-import { paths } from "@utils/constants";
 
 export function App() {
-  const { is404 } = usePath(paths);
-  console.log(is404)
   const routes: Route[] = [
     {
       children: [
         // { path: "/", element: <Application /> },
         {
           path: ":id/:type",
-          element: !is404 ? <Application /> : null,
+          element: <Application />,
         },
         // { path: ":id", element: <Application /> },
       ],

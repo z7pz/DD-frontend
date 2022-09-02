@@ -1,15 +1,40 @@
 import { h, Fragment } from "preact";
-import { paths } from "@utils/constants";
+import { PATHS } from "@utils/constants";
 import { usePath } from "@hooks";
 import { useEffect, useState } from "preact/hooks";
-import styles from '@styles/pages/dashboard/index.module.scss'
+import styles from "@styles/pages/dashboard/index.module.scss";
+
 export default function Application() {
-  const { type } = usePath(paths);
+  const { path, navigate } = usePath();
   const [loading, setLoading] = useState(true);
   const [server, setServer] = useState();
-  useEffect(() => {
+  useEffect(() => {}, []);
 
-  }, []);
-
-  return <div class="application"></div>;
+  return (
+    <div class={styles.application}>
+      <div class={styles.navbar}></div>
+      <div class={styles.wrapper}>
+        <div class={styles.sidebar}>
+          <div class={styles.server}>
+            <div class={styles.icon}>
+              <img src="" alt="" />
+            </div>
+            <div class={styles.name}>ITCHAT PLATFORM</div>
+          </div>
+          {PATHS.map(([path_map, [name, Icon]]) => (
+            <div
+              class={`${styles.item} ${path == path_map ? styles.active : ""}`}
+              onClick={() => navigate(path_map)}
+            >
+              <div class={styles.icon}>
+                <Icon />
+              </div>
+              <div class={styles.name}>{name}</div>
+            </div>
+          ))}
+        </div>
+        <div class={styles.playground}></div>
+      </div>
+    </div>
+  );
 }
