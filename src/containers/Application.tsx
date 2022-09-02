@@ -5,7 +5,8 @@ import { useEffect, useState } from "preact/hooks";
 import styles from "@styles/pages/dashboard/index.module.scss";
 
 export default function Application() {
-  const { path, navigate } = usePath();
+  const { data, navigate } = usePath();
+  const PlayGroundComponent = data![1][2];
   const [loading, setLoading] = useState(true);
   const [server, setServer] = useState();
   useEffect(() => {}, []);
@@ -23,7 +24,9 @@ export default function Application() {
           </div>
           {PATHS.map(([path_map, [name, Icon]]) => (
             <div
-              class={`${styles.item} ${path == path_map ? styles.active : ""}`}
+              class={`${styles.item} ${
+                data![0] == path_map ? styles.active : ""
+              }`}
               onClick={() => navigate(path_map)}
             >
               <div class={styles.icon}>
@@ -33,7 +36,9 @@ export default function Application() {
             </div>
           ))}
         </div>
-        <div class={styles.playground}></div>
+        <div class={styles.playground}>
+          <PlayGroundComponent />
+        </div>
       </div>
     </div>
   );

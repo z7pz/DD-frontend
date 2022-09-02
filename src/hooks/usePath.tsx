@@ -7,9 +7,10 @@ export function usePath() {
   const nav = useNavigate();
   const id = paths[0];
   const path = paths[1];
-  const is404 = !path || !PATHS.find((arr) => arr[0] == path);
+  const data = PATHS.find((arr) => arr[0] == path);
+  const is404 = !path || !data;
   const navigate = (newPath: string) => {
     nav({ to: `/${id}/${newPath}` });
   };
-  return { is404, path, id, navigate };
+  return { is404, data, id, navigate };
 }
