@@ -1,2 +1,37 @@
-.container {
+@import "@styles/utilities/variables.scss";
+.navbar {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $super_dark;
+  & > .container {
+    height: 100%;
+    width: calc(100% - 260px);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > .title {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+    }
+    & > .right {
+      & > .button {
+        cursor: pointer;
+        width: 66px;
+        height: 31px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        color: #a7000c;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }

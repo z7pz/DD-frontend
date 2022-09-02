@@ -3,6 +3,7 @@ import { PATHS } from "@utils/constants";
 import { usePath } from "@hooks";
 import { useEffect, useState } from "preact/hooks";
 import styles from "@styles/pages/dashboard/index.module.scss";
+import { Navbar } from "@components/navbar";
 
 export default function Application() {
   const { data, navigate } = usePath();
@@ -13,7 +14,7 @@ export default function Application() {
 
   return (
     <div class={styles.application}>
-      <div class={styles.navbar}></div>
+      <Navbar />
       <div class={styles.wrapper}>
         <div class={styles.sidebar}>
           <div class={styles.server}>

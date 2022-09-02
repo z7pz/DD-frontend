@@ -1,15 +1,10 @@
-@import "@styles/utilities/variables";
+@import "@styles/utilities/variables.scss";
 .application {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 
-  & > .navbar {
-    background-color: $super_dark;
-    height: 64px;
-    width: 100%;
-  }
   & > .wrapper {
     width: 100%;
     height: 100%;
