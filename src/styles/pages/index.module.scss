@@ -19,6 +19,9 @@
       color: #ffffff;
     }
     & > .right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       & > .button {
         cursor: pointer;
         width: 66px;
@@ -31,6 +34,27 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      & > .icon {
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+      }
+      & > .username {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        color: #ffffff;
+      }
+      & > .divider {
+        height: 10px;
+        width: 1px;
+        background: #232323;
+      }
+      & > .logout {
+        cursor: pointer;
       }
     }
   }

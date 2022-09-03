@@ -4,8 +4,11 @@ import { usePath } from "@hooks";
 import { useEffect, useState } from "preact/hooks";
 import styles from "@styles/pages/dashboard/index.module.scss";
 import { Navbar } from "@components/navbar";
+import { useAppState } from "@utils/mobx/State";
+import { observer } from "mobx-react-lite";
 
-export default function Application() {
+export default observer(function Application() {
+  const { dashboard } = useAppState();
   const { data, navigate } = usePath();
   const PlayGroundComponent = data![1][2];
   const [loading, setLoading] = useState(true);
@@ -21,14 +24,14 @@ export default function Application() {
             <div class={styles.icon}>
               <img src="" alt="" />
             </div>
-            <div class={styles.name}>ITCHAT PLATFORM</div>
+            <div class={styles.name}>{dashboard.test}</div>
           </div>
           {PATHS.map(([path_map, [name, Icon]]) => (
             <div
               class={`${styles.item} ${
                 data![0] == path_map ? styles.active : ""
               }`}
-              onClick={() => navigate(path_map as string)}
+              onClick={() => navigate(path_map)}
             >
               <div class={styles.icon}>
                 <Icon />
@@ -43,4 +46,4 @@ export default function Application() {
       </div>
     </div>
   );
-}
+})
