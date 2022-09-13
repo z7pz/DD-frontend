@@ -27,6 +27,8 @@
       "react-dom": ["./node_modules/preact/compat"]
     },
     "skipLibCheck": true
+,  "strictPropertyInitialization": false
+
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
 }

@@ -1,0 +1,122 @@
+.container {
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    "prefix language"
+    "down down";
+
+  & > div {
+    height: 224px;
+    background: #111111;
+    border-radius: 10px;
+    grid-area: prefix;
+    display: flex;
+    justify-content: center;
+    & > .wrapper {
+      margin-top: 20px;
+      width: calc(100% - (25 * 2) * 1px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      & > .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        & > .title {
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 36px;
+          color: #ffffff;
+        }
+        & > .option {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          & > .title {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 18px;
+            color: #8e8e8e;
+          }
+          & > .divider {
+            width: 1px;
+            height: 10px;
+            background: #232323;
+          }
+          & > .checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #1e1e1e;
+            border-radius: 100%;
+          }
+          & > .activebox {
+            position: relative;
+            background-color: #ff4646 !important;
+            &::before {
+              content: "";
+              width: 4px;
+              height: 2px;
+              // TODO: change it later
+              position: absolute;
+              left: 5.8px;
+              top: 7.3px;
+              background-color: white;
+              border-radius: 5;
+            }
+          }
+        }
+      }
+      & > .input {
+        & > .label {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 18px;
+          color: #8e8e8e;
+          margin-bottom: 5px;
+        }
+        & > input {
+          background: #161616;
+          border-radius: 5px;
+          width: calc(100% - 15px);
+          height: 32px;
+          border: none;
+          outline: none;
+          padding-left: 15px;
+          color: #8e8e8e;
+        }
+      }
+      & > .buttons {
+        display: flex;
+        width: 100%;
+        height: 32px;
+        gap: 10px;
+        & > * {
+          cursor: pointer;
+          height: 100%;
+          width: 100%;
+          background: #161616;
+          border-radius: 5px;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 18px;
+          border: none;
+        }
+        & > .reset {
+          color: #ff6a6a;
+        }
+        & > .save {
+          color: #7fff6a;
+        }
+      }
+    }
+  }
+  & > .top2 {
+    grid-area: language;
+  }
+  & > .down {
+    margin-top: 5px;
+    grid-area: down;
+  }
+}

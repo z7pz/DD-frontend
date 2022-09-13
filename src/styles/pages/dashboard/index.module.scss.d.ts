@@ -8,6 +8,8 @@ declare const classNames: {
   readonly icon: "icon";
   readonly server: "server";
   readonly playground: "playground";
+  readonly container: "container";
+  readonly title: "title";
 };
 export default classNames;
 export type ClassNames =
@@ -19,4 +21,6 @@ export type ClassNames =
   | "item"
   | "icon"
   | "server"
-  | "playground";
+  | "playground"
+  | "container"
+  | "title";

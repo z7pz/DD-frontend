@@ -75,6 +75,21 @@
       height: 100%;
       width: 100%;
       background-color: $dark;
+      display: flex;
+      justify-content: center;
+      overflow-y: auto;
+      & > .container {
+        margin-top: 50px;
+        width: calc(100% - (50 * 2) * 1px);
+        height: 100%;
+        & > .title {
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 53px;
+          color: #ffffff;
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 }
