@@ -3,12 +3,13 @@ import "@styles/index.scss";
 import { Outlet, Router, ReactLocation, Route } from "@tanstack/react-location";
 import Application from "@containers/Application";
 import { usePath } from "@hooks";
+import { LandingPage } from "./pages";
 
 export function App() {
   const routes: Route[] = [
     {
       children: [
-        // { path: "/", element: <Application /> },
+        { path: "/", element: <LandingPage /> },
         {
           path: ":id/:type",
           element: <Application />,
