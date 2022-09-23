@@ -13,10 +13,12 @@ export default observer(function Application() {
   useEffect(() => {
     if (is404) navigate(PATHS[0][0] as string);
     setTimeout(() => {
+      console.log(data)
       dashboard.hydrate({
-        servers: [{ name: "test", id: "test", icon: "test" }],
+        guilds: [{ name: "test", id: "test", icon: "test" }],
       });
     }, 3000);
+
   }, []);
   const PlayGroundComponent = data![1][2];
   const [loading, setLoading] = useState(true);
@@ -31,7 +33,7 @@ export default observer(function Application() {
             <div class={styles.icon}>
               <img src="" alt="" />
             </div>
-            <div class={styles.name}>{dashboard.servers.size}</div>
+            <div class={styles.name}>{dashboard.guilds.size}</div>
           </div>
           {PATHS.map(([path_map, [name, Icon]]) => (
             <div

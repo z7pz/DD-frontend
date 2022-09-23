@@ -4,7 +4,7 @@ import { Guild } from ".";
 import { IGuild } from "../interfaces";
 import { API } from "@utils/api";
 interface Data {
-  servers: IGuild[];
+  guilds: IGuild[];
 }
 
 export class Dashboard {
@@ -16,11 +16,11 @@ export class Dashboard {
     makeAutoObservable(this);
   }
   hydrate(data: Data) {
-    data.servers.forEach((server) => this.guilds.set(server.id, server));
+    data.guilds.forEach((server) => this.guilds.set(server.id, server));
   }
   async fetch_guilds() {
-    const servers = await this.api.get_guilds();
-    this.hydrate({ servers });
+    const guilds = await this.api.get_guilds();
+    this.hydrate({ guilds });
     this.fetching = false;
   }
 }
