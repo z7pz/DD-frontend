@@ -1,6 +1,5 @@
 declare const classNames: {
   readonly container: "container";
-  readonly top1: "top1";
   readonly wrapper: "wrapper";
   readonly header: "header";
   readonly title: "title";
@@ -19,7 +18,6 @@ declare const classNames: {
 export default classNames;
 export type ClassNames =
   | "container"
-  | "top1"
   | "wrapper"
   | "header"
   | "title"

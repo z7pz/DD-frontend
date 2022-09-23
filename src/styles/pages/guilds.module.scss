@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 65px;
+  margin-top: 65px;
+  & > .title {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 59px;
+    color: #ffffff;
+  }
+  & > .guilds {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 673px;
+    gap: 20px;
+    justify-content: center;
+    & > .card {
+      width: 153px;
+      height: 214px;
+      background-color: #111111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      & > .icon {
+        margin-top: 30px;
+        width: 71px;
+        height: 71px;
+        border-radius: 100%;
+      }
+      & > .name {
+        font-family: "Oswald";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #ffffff;
+      }
+      & > .go {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        & > a {
+          text-decoration: none;
+          font-family: "Oswald";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 36px;
+          color: #a0ff56;
+        }
+      }
+    }
+  }
+}

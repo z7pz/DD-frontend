@@ -9,6 +9,10 @@ export const Protected = observer(
       auth.check();
     }, []);
     if (auth.loggin) return "logging";
-    return redirect ? (window.location.href = "/") : children;
+    return auth.loggedIn
+      ? children
+      : redirect
+      ? (window.location.href = "/")
+      : children;
   }
 );

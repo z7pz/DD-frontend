@@ -10,6 +10,7 @@ interface Data {
 export class Dashboard {
   api = new API().dashboard;
   server = new Guild(this);
+  fetching = true;
   guilds: ObservableMap<string, IGuild> = new ObservableMap();
   constructor(public state: State) {
     makeAutoObservable(this);
@@ -20,5 +21,6 @@ export class Dashboard {
   async fetch_guilds() {
     const servers = await this.api.get_guilds();
     this.hydrate({ servers });
+    this.fetching = false;
   }
 }

@@ -22,9 +22,9 @@ export default defineConfig({
   },
   plugins: [
     preact(),
-    // sassDts({
-    //   enabledMode: ["development"],
-    // }),
+    sassDts({
+      enabledMode: ["development"],
+    }),
   ],
   build: {
     target: "ESNext",

@@ -23,8 +23,8 @@ export class Auth {
     try {
       const user = await this.state.dashboard.api.get_user();
       this.user = user;
-      this.loggin = false;
       this.loggedIn = true;
+      this.loggin = false;
       return true;
     } catch (err) {
       this.loggin = false;
