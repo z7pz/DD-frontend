@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { IServer } from "../interfaces";
+import { IGuild } from "../interfaces";
 import { Dashboard } from "./Dashboard";
 
 export class Guild {
@@ -9,7 +9,7 @@ export class Guild {
   constructor(public dashboard: Dashboard) {
     makeAutoObservable(this);
   }
-  hydrate(data: IServer) {
+  hydrate(data: IGuild) {
     Object.assign(this, data);
   }
 }
