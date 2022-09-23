@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { IServer } from "../interfaces";
 import { Dashboard } from "./Dashboard";
 
-export class Server {
+export class Guild {
   name!: string;
   id!: string;
   icon!: string;

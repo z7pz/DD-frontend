@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { Auth, Dashboard } from "./stores";
 
 export default class State {
-  auth = new Auth();
+  auth = new Auth(this);
   dashboard = new Dashboard(this);
   constructor() {
     makeAutoObservable(this);

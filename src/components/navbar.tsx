@@ -3,6 +3,8 @@ import styles from "@styles/pages/index.module.scss";
 import { BrandIcon, LogoutIcon } from "@components/assets";
 import { useAppState } from "@utils/mobx/State";
 import { observer } from "mobx-react-lite";
+import { NComp } from "./NComp";
+import { TComp } from "./TComp";
 export const Navbar = observer(function () {
   const { auth } = useAppState();
   return (
@@ -13,22 +15,21 @@ export const Navbar = observer(function () {
           <BrandIcon />
         </div>
         <div class={styles.right}>
-          {auth.user ? (
-            <>
-              <img class={styles.icon} src={auth.user.icon} alt="" />
-              <div class={styles.username}>{auth.user.username}</div>
-              <div class={styles.divider} />
-              <div class={styles.logout}>
-                <LogoutIcon />
-              </div>
-            </>
-          ) : (
-            <div as="button" class={styles.button}>
+          <TComp>
+            <img class={styles.icon} src={auth.user?.displayAvatarURL} alt="" />
+            <div class={styles.username}>{auth.user?.username}</div>
+            <div class={styles.divider} />
+            <div onClick={async() => await auth.logout()} class={styles.logout}>
+              <LogoutIcon />
+            </div>
+          </TComp>
+          <NComp>
+            <div onClick={() => auth.login()} as="button" class={styles.button}>
               LOGIN
             </div>
-          )}
+          </NComp>
         </div>
       </div>
     </div>
   );
-})
+});

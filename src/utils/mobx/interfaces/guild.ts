@@ -1,4 +1,4 @@
-export interface IServer {
+export interface IGuild {
   name: string;
   id: string;
   icon: string;

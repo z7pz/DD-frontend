@@ -1,18 +1,24 @@
 import { makeAutoObservable, ObservableMap } from "mobx";
 import State from "../State";
-import { Server } from ".";
-import { IServer } from "../interfaces";
+import { Guild } from ".";
+import { IGuild } from "../interfaces";
+import { API } from "@utils/api";
 interface Data {
-  servers: IServer[];
+  servers: IGuild[];
 }
 
 export class Dashboard {
-  server = new Server(this);
-  servers: ObservableMap<string, IServer> = new ObservableMap();
+  api = new API().dashboard;
+  server = new Guild(this);
+  guilds: ObservableMap<string, IGuild> = new ObservableMap();
   constructor(public state: State) {
     makeAutoObservable(this);
   }
   hydrate(data: Data) {
-    data.servers.forEach((server) => this.servers.set(server.id, server));
+    data.servers.forEach((server) => this.guilds.set(server.id, server));
+  }
+  async fetch_guilds() {
+    const servers = await this.api.get_guilds();
+    this.hydrate({ servers });
   }
 }

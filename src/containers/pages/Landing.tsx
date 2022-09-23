@@ -1,17 +1,17 @@
-import { useLogin } from "@hooks/useLogin";
+import { Navbar } from "@components/navbar";
+import { Protected } from "@components/protected";
+import { useAppState } from "@utils/mobx/State";
+import { observer } from "mobx-react-lite";
 import { h } from "preact";
-import { useEffect, useRef } from "preact/hooks";
-export function LandingPage() {
-  let login = useLogin("landing");
-
+import { useEffect } from "preact/hooks";
+export const LandingPage = observer(() => {
+  const { auth } = useAppState();
   useEffect(() => {
-    window.addEventListener(
-      "message",
-      (event) => {
-        console.log("wtf");
-      },
-      false
-    );
+    auth.check();
   }, []);
-  return <button onClick={login.auth}>Login</button>;
-}
+  return (
+    <Protected>
+      <Navbar />
+    </Protected>
+  );
+});
