@@ -10,8 +10,9 @@ import { IMapEntry } from "mobx";
 export const Guilds = observer(() => {
   const { dashboard } = useAppState();
   useEffect(() => {
+    console.log('test')
     dashboard.fetch_guilds();
-  });
+  }, []);
   return (
     <Protected redirect>
       <Navbar />

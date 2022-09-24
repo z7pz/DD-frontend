@@ -3,13 +3,15 @@ import State from "../State";
 import { Guild } from ".";
 import { IGuild } from "../interfaces";
 import { API } from "@utils/api";
+import { Layout } from "./Layout";
 interface Data {
   guilds: IGuild[];
 }
 
 export class Dashboard {
   api = new API().dashboard;
-  server = new Guild(this);
+  guild = new Guild(this);
+  layout = new Layout(this)
   fetching = true;
   guilds: ObservableMap<string, IGuild> = new ObservableMap();
   constructor(public state: State) {
